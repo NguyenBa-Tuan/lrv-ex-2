@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ShowProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,12 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/users/create', [UserController::class, 'create']);
+
+Route::post('/users/create', [UserController::class, 'store']);
+
+Route::get('/users/update/{id}', [UserController::class, 'edit']);
+Route::post('/users/update/{id}', [UserController::class, 'update']);
+
+
